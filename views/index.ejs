@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs') %>
+
+<!-- Server is sending watchlist array -->
+
+<div class="search-container">
+    <p>My Anime WatchList<p>
+    <form action="/search" method="POST">
+        <input type="text" name="query" class="search-box">
+        <input type="submit" value="Search" class="search-btn">
+    </form>
+</div>
+<div class="watchlist-container">
+    <p class="watch-title">Your Watchlist</p>
+    <% watchlist.forEach(anime => { %>
+        <div class="anime-div">
+            <img src=<%= anime.images.jpg.image_url %> alt="anime-img" class="anime-img">
+            <div>
+                <p class="anime-name"><%= anime.title %></p>
+                <p class="anime-eps">Total Episodes: <%= anime.episodes %></p>
+                <p class="anime-score">Ratings: <%= anime.score %></p>
+            </div>
+            <form action="/remove-from-watch" method="post">
+                <input type="text" name="anime_id" value="<%= anime.mal_id %>" hidden>
+                <input type="submit" value="Remove" class="rm-btn">
+            </form>
+        </div>
+    <% }) %>
+</div>
+
+
+<%- include('partials/footer.ejs') %>
