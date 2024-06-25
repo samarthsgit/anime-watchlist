@@ -1,0 +1,85 @@
+<%- include('partials/header.ejs') %>
+<!-- <div class="search-container">
+    <p>My Anime WatchList<p>
+    <form action="/search" method="POST">
+        <input type="text" name="query" class="search-box">
+        <input type="submit" value="Search" class="search-btn">
+    </form>
+</div> -->
+
+<div class="container">
+    <% animeList.forEach(anime => { %>
+        <div class="anime-div">
+            <img src=<%= anime.images.jpg.image_url %> alt="anime-img" class="anime-img">
+            <div class="text-div">
+                <p class="anime-name"><%= anime.title %></p>
+                <p class="anime-eps">Total Episodes: <%= anime.episodes %></p>
+                <p class="anime-synopsis">Synopsis: <%= anime.synopsis %></p>
+                <p class="anime-score">Ratings: <%= anime.score %></p>
+                <p class="anime-status">Status: <%= anime.status %></p>
+            </div>
+          
+            <form action="/add-to-watch" method="post">
+                <input type="text" name="anime_id" value="<%= anime.mal_id %>" hidden>
+                <input type="submit" value="Add To WatchList" class="watchlist-btn">
+            </form>
+        </div>
+    <% }) %>
+</div>
+<%- include('partials/footer.ejs') %>
+
+<style>
+    :root {
+        --media-switch: 1245px;
+    }
+    .anime-div {
+        display: flex;
+        flex-direction: row;
+        width: 95%;
+        max-width: 95%;
+    }
+    .anime-img {
+
+    }
+    .anime-div form {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+    .anime-synopsis {
+        font-size: 14px;
+    }
+    @media (max-width: 1245px) {
+        .anime-div {
+        display: flex;
+        flex-direction: column;
+        width: 225px;
+        }
+        .anime-synopsis {
+            display: none;
+        }
+        .anime-div form {
+            position: relative;
+        }
+    }
+    @media (min-width: 1246px) {
+        .watchlist-btn {
+        width: 100%;
+        text-align: center;
+        }
+        .anime-div {
+            /* height: 350px; */
+        }
+        .anime-img {
+            height: 100%;
+            margin-bottom: 30px;
+           
+        }
+        .text-div {
+            padding: 10px;
+            margin-bottom: 30px;
+            
+        }
+    }
+</style>

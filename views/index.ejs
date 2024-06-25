@@ -2,22 +2,22 @@
 
 <!-- Server is sending watchlist array -->
 
-<div class="search-container">
+<!-- <div class="search-container">
     <p>My Anime WatchList<p>
     <form action="/search" method="POST">
         <input type="text" name="query" class="search-box">
-        <input type="submit" value="Search" class="search-btn">
+        <input type="submit" value="Search to Add" class="search-btn">
     </form>
-</div>
+</div> -->
 <div class="watchlist-container">
     <p class="watch-title">Your Watchlist</p>
     <% watchlist.forEach(anime => { %>
         <div class="anime-div">
             <img src=<%= anime.images.jpg.image_url %> alt="anime-img" class="anime-img">
-            <div>
+            <div class="text-div">
                 <p class="anime-name"><%= anime.title %></p>
                 <p class="anime-eps">Total Episodes: <%= anime.episodes %></p>
-                <p class="anime-score">Ratings: <%= anime.score %></p>
+                <p class="anime-score">Rating: <%= anime.score %></p>
             </div>
             <form action="/remove-from-watch" method="post">
                 <input type="text" name="anime_id" value="<%= anime.mal_id %>" hidden>

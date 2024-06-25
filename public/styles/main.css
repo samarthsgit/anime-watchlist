@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Playwrite+DE+Grund:wght@100..400&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: content-box;
+    font-family: "Playwrite DE Grund", "Comic Neue";
+}
+
+:root {
+    --bkg-color: beige;
+    --anime-div-color: beige;
+    --search-btn: rgb(248, 248, 173);
+    --btn-hover: rgb(236, 236, 165);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.search-container {
+    width: 100%;
+    /* height: 200px; */
+    /* background-color: aquamarine; */
+    background-color: var(--anime-div-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid rgba(0,0,0, 0.6);
+}
+
+.search-container p {
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.search-container form {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+}
+
+.search-box {
+    width: 350px;
+    height: 30px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.search-btn {
+    height: 30px;
+    background-color: var(--search-btn);
+    transition: 200ms;
+}
+
+.search-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+/* Styling Watchlist */
+
+.watchlist-container, .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--bkg-color);
+    padding-top: 10px;
+}
+
+.watch-title {
+    font-size: 30px;
+    padding: 30px;
+}
+
+.anime-div {
+    /* width: 75%; */
+    background-color:beige;
+    
+    display: flex;
+    position: relative;
+    /* height: 250px; */
+    flex-direction: column;
+    width: 225px;
+    margin: 10px;
+    border: 3px solid rgba(0,0,0, 0.4);
+    
+}
+
+.rm-btn, .watchlist-btn {
+    /* position: absolute;
+    bottom: 0;
+    right: 0; */
+    width: 100%;
+    height: 30px;
+    background-color:var(--search-btn);
+    transition: 200ms;
+}
+
+.rm-btn:hover, .watchlist-btn:hover {
+    background-color:var(--btn-hover);
+}
+
+.anime-div img {
+    height: 309px;
+    width: 225px;
+    object-fit: fill;
+}
+
+.text-div {
+    padding: 10px;
+}
+
+.anime-name {
+    font-size: 25px;
+}
+
+.anime-synopsis {
+    text-align: justify;
+}
+
+/* Adding Media Queries */
